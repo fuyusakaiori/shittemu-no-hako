@@ -171,7 +171,7 @@ const uint32_t PARENT_POINTER_OFFSET = IS_ROOT_OFFSET + IS_ROOT_SIZE;
 const uint32_t COMMON_TREE_NODE_HEADER_SIZE = TREE_NODE_TYPE_SIZE + IS_ROOT_SIZE + PARENT_POINTER_SIZE;
 
 /*
- * 树叶子节点头信息内存布局
+ * 树叶子节点头信息的内存布局
  */
 // 树的叶子节点存储的关键字数量的字段的大小
 const uint32_t TREE_LEAF_NODE_NUM_CELLS_SIZE = sizeof(uint32_t);
