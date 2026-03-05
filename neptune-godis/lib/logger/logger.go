@@ -31,7 +31,7 @@ const (
 
 var levels = []string{"DEBUG", "INFO", "WARING", "ERROR", "FATAL"}
 
-var DefaultLogger ILogger = NewStdoutLogger()
+var defaultLogger ILogger = NewStdoutLogger()
 
 // 日志配置
 type Setting struct {
@@ -139,58 +139,58 @@ func SetUpFileLogger(setting *Setting) error {
 	if err != nil {
 		return err
 	}
-	DefaultLogger = logger
+	defaultLogger = logger
 	return nil
 }
 
 func Debug(logs ...interface{})  {
 	message := fmt.Sprintln(logs...)
-	DefaultLogger.Output(DEBUG, defaultCallerDepth, message)
+	defaultLogger.Output(DEBUG, defaultCallerDepth, message)
 }
 
 func Debugf(format string, logs ...interface{})  {
 	message := fmt.Sprintf(format, logs...)
-	DefaultLogger.Output(DEBUG, defaultCallerDepth, message)
+	defaultLogger.Output(DEBUG, defaultCallerDepth, message)
 }
 
 func Info(logs ...interface{})  {
 	message := fmt.Sprintln(logs...)
-	DefaultLogger.Output(INFO, defaultCallerDepth, message)
+	defaultLogger.Output(INFO, defaultCallerDepth, message)
 }
 
 func Infof(format string, logs ...interface{})  {
 	message := fmt.Sprintf(format, logs...)
-	DefaultLogger.Output(INFO, defaultCallerDepth, message)
+	defaultLogger.Output(INFO, defaultCallerDepth, message)
 }
 
 func Warning(logs ...interface{})  {
 	message := fmt.Sprintln(logs...)
-	DefaultLogger.Output(WARING, defaultCallerDepth, message)
+	defaultLogger.Output(WARING, defaultCallerDepth, message)
 }
 
 func Warningf(format string, logs ...interface{})  {
 	message := fmt.Sprintf(format, logs...)
-	DefaultLogger.Output(WARING, defaultCallerDepth, message)
+	defaultLogger.Output(WARING, defaultCallerDepth, message)
 }
 
 func Error(logs ...interface{})  {
 	message := fmt.Sprintln(logs...)
-	DefaultLogger.Output(ERROR, defaultCallerDepth, message)
+	defaultLogger.Output(ERROR, defaultCallerDepth, message)
 }
 
 func Errorf(format string, logs ...interface{})  {
 	message := fmt.Sprintf(format, logs...)
-	DefaultLogger.Output(ERROR, defaultCallerDepth, message)
+	defaultLogger.Output(ERROR, defaultCallerDepth, message)
 }
 
 func Fatal(logs ...interface{})  {
 	message := fmt.Sprintln(logs...)
-	DefaultLogger.Output(FATAL, defaultCallerDepth, message)
+	defaultLogger.Output(FATAL, defaultCallerDepth, message)
 }
 
 func Fatalf(format string, logs ...interface{})  {
 	message := fmt.Sprintf(format, logs...)
-	DefaultLogger.Output(FATAL, defaultCallerDepth, message)
+	defaultLogger.Output(FATAL, defaultCallerDepth, message)
 }
 
 func (logger *Logger) Output(level LogLevel, callerDepth int, message string) {
