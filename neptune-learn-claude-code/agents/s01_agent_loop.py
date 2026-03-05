@@ -79,7 +79,7 @@ def agent_loop(messages: list):
                 print(output[:200])
                 results.append({
                     "type": "tool_result",
-                    "tool_use_id": block.tool_use_id,
+                    "tool_use_id": block.id,
                     "content": output,
                 })
         messages.append({"role": "user", "content": results})
@@ -89,7 +89,7 @@ if __name__ == '__main__':
     # 1. 开始循环
     while True:
         try:
-            query = input("提示词")
+            query = input("\033[36ms01 >> \033[0m")
         except (EOFError, KeyboardInterrupt):
             break
         # 2. 判断是否接收到退出指令
